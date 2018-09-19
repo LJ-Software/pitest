@@ -1,6 +1,8 @@
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/org.pitest/pitest/badge.svg?style=flat)](https://maven-badges.herokuapp.com/maven-central/org.pitest/pitest)
 [![Build Status](https://travis-ci.org/hcoles/pitest.png?branch=master)](https://travis-ci.org/hcoles/pitest)
 
+NOTE: This fork of PIT is for academic use. We are implementing three new mutation operators for PIT.
+
 Pitest (aka PIT) is a state of the art mutation testing system for Java and the JVM.
 
 Read all about it at http://pitest.org
