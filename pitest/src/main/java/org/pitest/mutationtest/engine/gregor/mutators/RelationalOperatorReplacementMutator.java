@@ -14,7 +14,7 @@ import org.pitest.mutationtest.engine.gregor.ZeroOperandMutation;
 
 public enum RelationalOperatorReplacementMutator implements MethodMutatorFactory {
 
-    MATH_MUTATOR;
+    CONDITIONALS_REPLACEMENT_MUTATOR;
 
     @Override
     public MethodVisitor create(final MutationContext context, final MethodInfo methodInfo,

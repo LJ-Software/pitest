@@ -28,7 +28,7 @@ import org.pitest.mutationtest.engine.gregor.ZeroOperandMutation;
 
 public enum ArithmeticOperatorReplacementMutator implements MethodMutatorFactory {
 
-    MATH_MUTATOR;
+    ARITHMETIC_REPLACEMENT_MUTATOR;
 
     @Override
     public MethodVisitor create(final MutationContext context, final MethodInfo methodInfo,

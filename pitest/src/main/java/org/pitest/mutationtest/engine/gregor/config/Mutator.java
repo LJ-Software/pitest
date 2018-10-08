@@ -53,6 +53,9 @@ import org.pitest.mutationtest.engine.gregor.mutators.experimental.NakedReceiver
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveIncrementsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.RemoveSwitchMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.experimental.SwitchMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.RelationalOperatorReplacementMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.ArithmeticOperatorDeletionMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.ArithmeticOperatorReplacementMutator;
 
 public final class Mutator {
 
@@ -106,6 +109,24 @@ public final class Mutator {
      * increments and decrements of local variables.
      */
     add("INCREMENTS", IncrementsMutator.INCREMENTS_MUTATOR);
+
+    /**
+     * NEW mutator that replaces the relational operators with each of the
+     * others.
+     */
+    add("CONDITIONALS_REPLACEMENT", RelationalOperatorReplacementMutator.CONDITIONALS_REPLACEMENT_MUTATOR);
+
+    /**
+     * NEW mutator that replaces arithmetic operators with each of the
+     * others.
+     */
+    add("ARITHMETIC_REPLACEMENT", ArithmeticOperatorReplacementMutator.ARITHMETIC_REPLACEMENT_MUTATOR);
+
+    /**
+     * NEW mutator that deletes operands in arithmetic expressions with
+     * more than one.
+     */
+    add("ARITHMETIC_DELETION", ArithmeticOperatorDeletionMutator.ARITHMETIC_DELETION_MUTATOR);
 
     /**
      * Optional mutator that removes local variable increments.
