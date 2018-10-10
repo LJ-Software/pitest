@@ -18,9 +18,9 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.objectweb.asm.MethodVisitor;
-import org.objectweb.asm.Opcodes;
+//import org.objectweb.asm.Opcodes;
 import org.pitest.mutationtest.engine.gregor.AbstractInsnMutator;
-import org.pitest.mutationtest.engine.gregor.InsnSubstitution;
+//import org.pitest.mutationtest.engine.gregor.InsnSubstitution;
 import org.pitest.mutationtest.engine.gregor.MethodInfo;
 import org.pitest.mutationtest.engine.gregor.MethodMutatorFactory;
 import org.pitest.mutationtest.engine.gregor.MutationContext;
@@ -33,7 +33,7 @@ public enum ArithmeticOperatorDeletionMutator implements MethodMutatorFactory {
   @Override
   public MethodVisitor create(final MutationContext context,
       final MethodInfo methodInfo, final MethodVisitor methodVisitor) {
-    return new MathMethodVisitor(this, methodInfo, context, methodVisitor);
+    return new ArithmeticDeleteMethodVisitor(this, methodInfo, context, methodVisitor);
   }
 
   @Override
@@ -48,9 +48,9 @@ public enum ArithmeticOperatorDeletionMutator implements MethodMutatorFactory {
 
 }
 
-class MathMethodVisitor extends AbstractInsnMutator {
+class ArithmeticDeleteMethodVisitor extends AbstractInsnMutator {
 
-  MathMethodVisitor(final MethodMutatorFactory factory,
+  ArithmeticDeleteMethodVisitor(final MethodMutatorFactory factory,
       final MethodInfo methodInfo, final MutationContext context,
       final MethodVisitor writer) {
     super(factory, methodInfo, context, writer);
@@ -68,4 +68,8 @@ class MathMethodVisitor extends AbstractInsnMutator {
     return MUTATIONS;
   }
 
+  //private boolean canMutate(final int opcode) {
+    //switch(opcode):
+    //case Opcodes.
+  //}
 }

@@ -33,7 +33,7 @@ public enum ArithmeticOperatorReplacementMutator implements MethodMutatorFactory
     @Override
     public MethodVisitor create(final MutationContext context, final MethodInfo methodInfo,
             final MethodVisitor methodVisitor) {
-        return new MathMethodVisitor(this, methodInfo, context, methodVisitor);
+        return new ArithmeticReplacementMethodVistor(this, methodInfo, context, methodVisitor);
     }
 
     @Override
@@ -48,9 +48,9 @@ public enum ArithmeticOperatorReplacementMutator implements MethodMutatorFactory
 
 }
 
-class MathMethodVisitor extends AbstractInsnMutator {
+class ArithmeticReplacementMethodVistor extends AbstractInsnMutator {
 
-    MathMethodVisitor(final MethodMutatorFactory factory, final MethodInfo methodInfo, final MutationContext context,
+        ArithmeticReplacementMethodVistor(final MethodMutatorFactory factory, final MethodInfo methodInfo, final MutationContext context,
             final MethodVisitor writer) {
         super(factory, methodInfo, context, writer);
     }

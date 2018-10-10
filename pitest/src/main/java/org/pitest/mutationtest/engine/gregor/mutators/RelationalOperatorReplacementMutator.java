@@ -19,7 +19,7 @@ public enum RelationalOperatorReplacementMutator implements MethodMutatorFactory
     @Override
     public MethodVisitor create(final MutationContext context, final MethodInfo methodInfo,
             final MethodVisitor methodVisitor) {
-        return new MathMethodVisitor(this, methodInfo, context, methodVisitor);
+        return new RelationalReplacementMethodVisitor(this, methodInfo, context, methodVisitor);
     }
 
     @Override
@@ -34,9 +34,9 @@ public enum RelationalOperatorReplacementMutator implements MethodMutatorFactory
 
 }
 
-class MathMethodVisitor extends AbstractInsnMutator {
+class RelationalReplacementMethodVisitor extends AbstractInsnMutator {
 
-    MathMethodVisitor(final MethodMutatorFactory factory, final MethodInfo methodInfo, final MutationContext context,
+    RelationalReplacementMethodVisitor(final MethodMutatorFactory factory, final MethodInfo methodInfo, final MutationContext context,
             final MethodVisitor writer) {
         super(factory, methodInfo, context, writer);
     }
