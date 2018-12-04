@@ -63,7 +63,7 @@ class AReturnMethodVisitor extends AbstractInsnMutator {
     NON_NULL_MUTATIONS.put("java.lang.Short", returnIntegerZero(Short.class, "(S)Ljava/lang/Short;",  "replaced Short return value with 0"));
     NON_NULL_MUTATIONS.put("java.lang.Character", returnIntegerZero(Character.class, "(C)Ljava/lang/Character;",  "replaced Character return value with 0"));
     NON_NULL_MUTATIONS.put("java.lang.Long", returnLongZero());
-    NON_NULL_MUTATIONS.put("java.lang.Float", returnFloatZero());
+    NON_NULL_MUTATIONS.put("java.lang.Float",  returnFloatZero());
     NON_NULL_MUTATIONS.put("java.lang.Double", returnDoubleZero());
     NON_NULL_MUTATIONS.put("java.lang.String", returnEmptyString());
     NON_NULL_MUTATIONS.put("java.util.Optional", returnEmptyOptional());
@@ -95,7 +95,7 @@ class AReturnMethodVisitor extends AbstractInsnMutator {
   private boolean canMutateToNonNull() {
     return NON_NULL_MUTATIONS.containsKey(currentReturnType());
   }
-
+ 
   private String currentReturnType() {
     final Type t = Type.getReturnType(methodInfo().getMethodDescriptor());
     return t.getClassName();

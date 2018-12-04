@@ -41,6 +41,7 @@ import org.pitest.mutationtest.engine.gregor.mutators.IncrementsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.InlineConstantMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.InvertNegsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.MathMutator;
+import org.pitest.mutationtest.engine.gregor.mutators.MethodReturnTypeReplacementMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.NegateConditionalsMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.NonVoidMethodCallMutator;
 import org.pitest.mutationtest.engine.gregor.mutators.NullReturnValsMutator;
@@ -155,6 +156,12 @@ public final class Mutator {
          * one.
          */
         add("ARITHMETIC_DELETION", ArithmeticOperatorDeletionMutator.ARITHMETIC_DELETION_MUTATOR);
+
+        /**
+         * NEW mutator that replaces method calls with similar methods that return same type
+         * 
+         */
+        add("RETURN_TYPE_REPLACEMENT", MethodReturnTypeReplacementMutator.RETURN_TYPE_REPLACEMENT);
 
         /**
          * Optional mutator that removes local variable increments.
