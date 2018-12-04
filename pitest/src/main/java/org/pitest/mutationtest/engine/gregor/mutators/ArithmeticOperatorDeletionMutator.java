@@ -128,8 +128,8 @@ class ArithmeticDeleteMethodVisitor extends AbstractInsnMutator {
           case Opcodes.IMUL:
           case Opcodes.IREM:
           case Opcodes.ISUB:
-          mv.visitVarInsn(op, 1);
- 
+          mv.visitInsn(Opcodes.SWAP);
+          mv.visitInsn(Opcodes.POP);
           break;
 
           // 64 bit values
@@ -143,7 +143,9 @@ class ArithmeticDeleteMethodVisitor extends AbstractInsnMutator {
           case Opcodes.LMUL:
           case Opcodes.LREM:
           case Opcodes.LSUB:
-          mv.visitVarInsn(op, 2);
+          mv.visitInsn(Opcodes.DUP2_X2);
+          mv.visitInsn(Opcodes.POP2);
+          mv.visitInsn(Opcodes.POP2);
           break;
         }
       }
@@ -158,8 +160,36 @@ class ArithmeticDeleteMethodVisitor extends AbstractInsnMutator {
   private static ZeroOperandMutation returnFirstOperand(int op) {
     return new ZeroOperandMutation() {
       @Override
-      public void apply(final int opCode, final MethodVisitor mv) {  
-          mv.visitVarInsn(op, 2);
+      public void apply(final int opCode, final MethodVisitor mv) {
+        switch (op) {
+          // 32 bit values
+          case Opcodes.FADD:
+          case Opcodes.FDIV:
+          case Opcodes.FMUL:
+          case Opcodes.FREM:
+          case Opcodes.FSUB:
+          case Opcodes.IADD:
+          case Opcodes.IDIV:
+          case Opcodes.IMUL:
+          case Opcodes.IREM:
+          case Opcodes.ISUB:
+          mv.visitInsn(Opcodes.POP);
+          break;
+
+          // 64 bit values
+          case Opcodes.DADD:
+          case Opcodes.DDIV:
+          case Opcodes.DMUL:
+          case Opcodes.DREM:
+          case Opcodes.DSUB:
+          case Opcodes.LADD:
+          case Opcodes.LDIV:
+          case Opcodes.LMUL:
+          case Opcodes.LREM:
+          case Opcodes.LSUB:
+          mv.visitInsn(Opcodes.POP2);
+          break;
+        }
       }
 
       @Override

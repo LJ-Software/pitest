@@ -54,7 +54,7 @@ public enum MethodReturnTypeReplacementMutator implements MethodMutatorFactory {
     }
 }
 
-class ReturnTypeReplacementMethodVisitor extends MethodCallMethodVisitor {
+class ReturnTypeReplacementMethodVisitor extends AbstractInsnMutator {
 
     static ZeroOperandMutation IntegerReturnMutation=new ZeroOperandMutation(){@Override public void apply(int opCode,MethodVisitor mv){
     // Pop the method call off of the stack
